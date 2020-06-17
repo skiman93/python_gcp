@@ -7,7 +7,7 @@ from flask import Flask, render_template
 app = Flask(__name__)
 
 
-@app.route('/index')
+@app.route('/')
 def root():
     # For the sake of example, use static information to inflate the template.
     # This will be replaced with real information in later steps.
@@ -18,7 +18,7 @@ def root():
 
     return render_template('index.html', times=dummy_times)
 
-@app.route('/home')
+@app.route('/beers')
 def home():
     x = requests.get("https://sandbox-api.brewerydb.com/v2/beers/?key=1342184223b5ce6742f6b7ab52d4e6b8")
     json_response = x.json()
